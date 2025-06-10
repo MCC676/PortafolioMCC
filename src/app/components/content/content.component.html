@@ -1,0 +1,30 @@
+<main id="content" class="px-4 sm:px-6 lg:px-8 pt-10 md:pt-16">
+  <!-- Primera fila: About (izq) + Experience (der) -->
+  <div class="flex flex-col lg:flex-row gap-8 w-full">
+    <!-- Sección About (izquierda) -->
+    <div class="lg:w-1/2">
+      <div class="sticky top-10"> <!-- Añade esta línea -->
+        <app-profile></app-profile>
+      </div>
+    </div>
+
+    <!-- Sección Experience (derecha) -->
+    <div class="lg:w-1/2">
+      <app-experience></app-experience>
+      <div class="bg-neutral-950 text-white py-10 px-4 sm:px-6 lg:px-8">
+        <app-projects></app-projects>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Otras secciones (ancho completo) -->
+  <div class="mt-12 w-full">
+    <!-- <app-testimonials></app-testimonials>
+    <app-education></app-education>
+    <app-skills></app-skills>
+    <app-articles></app-articles> -->
+    <app-suscribe></app-suscribe>
+  </div>
+</main>
