@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=/PortafolioMCC/"
+    "deploy": "ng deploy --base-href=/PortafolioMCC/ --name=\"MCC676\" --email=\"676teg@gmail.com\""
   },
   "private": true,
   "dependencies": {
