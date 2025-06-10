@@ -2,7 +2,7 @@ name: Build & Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,5 +30,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          npm run ng -- deploy --repo=https://github.com/nombre_de_usuario_en_github/nombre_de_proyecto.git --name="nombre_de_usuario_en_githhub" --email="correo_electronico_de_tu_cuenta_de_github" --base-href=/nombre_del_proyecto_en_github/
+          npm run ng -- deploy --repo=https://github.com/MCC676/PortafolioMCC.git --name="MCC676" --email="676teg@gmail.com" --base-href=/PortafolioMCC/
 
