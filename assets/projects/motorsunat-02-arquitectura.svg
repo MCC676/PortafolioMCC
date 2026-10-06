@@ -1,0 +1,279 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1200" width="1440" height="1200" role="img" aria-labelledby="titulo">
+  <title id="titulo">MotorSunat — arquitectura, pipeline de firma y flujo de emisión</title>
+
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#525252"/>
+    </marker>
+  </defs>
+
+  <style>
+    .f  { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .m  { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+    .h1 { font-size: 36px; font-weight: 700; fill: #fafafa; }
+    .h2 { font-size: 15px; fill: #a3a3a3; }
+    .sec{ font-size: 12px; font-weight: 600; fill: #737373; letter-spacing: 1.7px; }
+    .ct { font-size: 15px; font-weight: 600; fill: #fafafa; }
+    .cs { font-size: 11px; fill: #8a8a8a; }
+    .st { font-size: 12.5px; font-weight: 600; fill: #fafafa; }
+    .sd { font-size: 10.5px; fill: #8a8a8a; }
+    .nt { font-size: 13.5px; font-weight: 600; fill: #fafafa; }
+    .nd { font-size: 10.5px; fill: #22d3ee; }
+    .nd2{ font-size: 10.5px; fill: #8a8a8a; }
+    .ntag{ font-size: 11px; font-weight: 700; fill: #0a0a0a; }
+    .foot{ font-size: 11px; fill: #737373; }
+    .card{ fill: #171717; stroke: #262626; stroke-width: 1; }
+    .chip{ fill: #171717; stroke: #262626; stroke-width: 1; }
+    .chipt{ font-size: 12px; fill: #d4d4d4; }
+    .bull{ font-size: 11.5px; fill: #a3a3a3; }
+  </style>
+
+  <rect width="1440" height="1200" fill="#0a0a0a"/>
+
+  <!-- ============ Cabecera ============ -->
+  <text class="f h1" x="36" y="66">MotorSunat</text>
+  <text class="f h2" x="36" y="98">Motor de facturación electrónica SUNAT · Comprobantes de Pago Electrónicos (Perú)</text>
+
+  <g class="f">
+    <rect class="chip" x="36"   y="118" width="68"  height="28" rx="14"/><text class="chipt" x="70"   y="137" text-anchor="middle">.NET 8</text>
+    <rect class="chip" x="114"  y="118" width="155" height="28" rx="14"/><text class="chipt" x="191"  y="137" text-anchor="middle">Clean Architecture</text>
+    <rect class="chip" x="279"  y="118" width="75"  height="28" rx="14"/><text class="chipt" x="316"  y="137" text-anchor="middle">UBL 2.1</text>
+    <rect class="chip" x="364"  y="118" width="163" height="28" rx="14"/><text class="chipt" x="445"  y="137" text-anchor="middle">XMLDSig RSA-SHA256</text>
+    <rect class="chip" x="537"  y="118" width="163" height="28" rx="14"/><text class="chipt" x="618"  y="137" text-anchor="middle">SQL Server + Dapper</text>
+    <rect class="chip" x="710"  y="118" width="134" height="28" rx="14"/><text class="chipt" x="777"  y="137" text-anchor="middle">xUnit 129/129</text>
+  </g>
+
+  <!-- Cifras del encabezado -->
+  <g class="f">
+    <line x1="1178" y1="48" x2="1178" y2="98" stroke="#262626" stroke-width="1"/>
+    <line x1="1320" y1="48" x2="1320" y2="98" stroke="#262626" stroke-width="1"/>
+    <text x="1078" y="76" font-size="26" font-weight="700" fill="#fafafa">23</text>
+    <text x="1078" y="96" font-size="11" fill="#737373">endpoints REST</text>
+    <text x="1191" y="76" font-size="26" font-weight="700" fill="#fafafa">9</text>
+    <text x="1191" y="96" font-size="11" fill="#737373">controles pre-firma</text>
+    <text x="1333" y="76" font-size="26" font-weight="700" fill="#fafafa">5</text>
+    <text x="1333" y="96" font-size="11" fill="#737373">tipos de CPE</text>
+  </g>
+
+  <!-- ============ Banda 1 · izquierda: capas ============ -->
+  <text class="f sec" x="36" y="192">ARQUITECTURA POR CAPAS</text>
+
+  <!-- Api -->
+  <rect class="card" x="36" y="210" width="556" height="54" rx="8"/>
+  <rect x="36" y="210" width="4" height="54" rx="2" fill="#22d3ee"/>
+  <text class="f ct" x="58" y="238">MotorSunat.Api</text>
+  <text class="m cs" x="58" y="257">DocumentosController · GuiasController · ApiKeyAttribute · Swashbuckle</text>
+
+  <!-- Application -->
+  <rect class="card" x="36" y="292" width="556" height="54" rx="8"/>
+  <rect x="36" y="292" width="4" height="54" rx="2" fill="#a78bfa"/>
+  <text class="f ct" x="58" y="320">MotorSunat.Application</text>
+  <text class="m cs" x="58" y="339">Features/Documentos · Commands · Queries · UseCases · Interfaces</text>
+
+  <!-- Domain -->
+  <rect class="card" x="36" y="374" width="556" height="54" rx="8"/>
+  <rect x="36" y="374" width="4" height="54" rx="2" fill="#fbbf24"/>
+  <text class="f ct" x="58" y="402">MotorSunat.Domain</text>
+  <text class="m cs" x="58" y="421">EstadoDocumentoConstants · EstadoProcesoConstants · RucValidator</text>
+
+  <!-- Infrastructure -->
+  <rect class="card" x="36" y="456" width="556" height="62" rx="8"/>
+  <rect x="36" y="456" width="4" height="62" rx="2" fill="#34d399"/>
+  <text class="f ct" x="58" y="482">MotorSunat.Infrastructure</text>
+  <text class="m cs" x="58" y="500">Builders/Xml · Signature · Validation · Persistence</text>
+  <text class="m cs" x="58" y="514">External/Sunat · SunatGateway (SOAP) · GreSunatGateway (REST OAuth 2.0)</text>
+
+  <!-- Flechas de dependencia -->
+  <line x1="150" y1="266" x2="150" y2="286" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+  <text class="f" x="162" y="281" font-size="10.5" fill="#525252">depende de</text>
+
+  <line x1="150" y1="348" x2="150" y2="368" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+  <text class="f" x="162" y="363" font-size="10.5" fill="#525252">depende de</text>
+
+  <path d="M 592 487 L 622 487 L 622 319 L 598 319" fill="none" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+  <text class="f" x="630" y="406" font-size="10.5" fill="#525252">implementa</text>
+
+  <text class="f foot" x="36" y="548">Las dependencias apuntan hacia dentro: Domain no referencia ningún proyecto.</text>
+  <text class="f foot" x="36" y="566">MotorSunat.Tests (xUnit) referencia Infrastructure y corre contra la base MotorSunat_Test.</text>
+
+  <!-- ============ Banda 1 · derecha: pipeline ============ -->
+  <text class="f sec" x="744" y="192">PIPELINE DE FIRMA — 9 CONTROLES</text>
+
+  <g class="f">
+    <!-- 1 -->
+    <rect class="card" x="744" y="210" width="660" height="38" rx="6"/>
+    <rect x="756" y="219" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="233" text-anchor="middle" fill="#22d3ee">1</text>
+    <text class="st" x="802" y="226">Obtener el documento</text>
+    <text class="sd" x="802" y="240">empresa y ambiente del comprobante</text>
+
+    <!-- 2 -->
+    <rect class="card" x="744" y="253" width="660" height="38" rx="6"/>
+    <rect x="756" y="262" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="276" text-anchor="middle" fill="#22d3ee">2</text>
+    <text class="st" x="802" y="269">Resolver el certificado digital</text>
+    <text class="sd" x="802" y="283">el PFX activo del ambiente — nunca se registra su ruta ni su clave</text>
+
+    <!-- 3 -->
+    <rect class="card" x="744" y="296" width="660" height="38" rx="6"/>
+    <rect x="756" y="305" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="319" text-anchor="middle" fill="#22d3ee">3</text>
+    <text class="st" x="802" y="312">Construir el XML UBL 2.1</text>
+    <text class="sd" x="802" y="326">Factura 01 · Boleta 03 · Nota de Crédito 07 · Nota de Débito 08</text>
+
+    <!-- 4 -->
+    <rect class="card" x="744" y="339" width="660" height="38" rx="6"/>
+    <rect x="756" y="348" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="362" text-anchor="middle" fill="#22d3ee">4</text>
+    <text class="st" x="802" y="355">Validar contra los XSD oficiales UBL 2.1</text>
+    <text class="sd" x="802" y="369">falla temprana: 400, sin firmar y sin enviar nada</text>
+
+    <!-- 5 -->
+    <rect class="card" x="744" y="382" width="660" height="38" rx="6"/>
+    <rect x="756" y="391" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="405" text-anchor="middle" fill="#22d3ee">5</text>
+    <text class="st" x="802" y="398">Reglas semánticas SUNAT</text>
+    <text class="sd" x="802" y="412">3103 factor · 3102 decimales · 3205 tipo de operación · 3244 forma de pago</text>
+
+    <!-- 5b -->
+    <rect class="card" x="744" y="425" width="660" height="38" rx="6"/>
+    <rect x="756" y="434" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="448" text-anchor="middle" fill="#22d3ee">5b</text>
+    <text class="st" x="802" y="441">Reglas de nota contra la base de datos</text>
+    <text class="sd" x="802" y="455">solo 07/08: documento afectado EMITIDO, CDR final 0, catálogos 09/10</text>
+
+    <!-- 6 -->
+    <rect class="card" x="744" y="468" width="660" height="38" rx="6"/>
+    <rect x="756" y="477" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="491" text-anchor="middle" fill="#22d3ee">6</text>
+    <text class="st" x="802" y="484">Cotejar el RUC del certificado con el del emisor</text>
+    <text class="sd" x="802" y="498">gate de identidad: si no coinciden, no se firma</text>
+
+    <!-- 7 -->
+    <rect class="card" x="744" y="511" width="660" height="38" rx="6"/>
+    <rect x="756" y="520" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="534" text-anchor="middle" fill="#22d3ee">7</text>
+    <text class="st" x="802" y="527">Firmar el XML (XMLDSig, RSA-SHA256)</text>
+    <text class="sd" x="802" y="541">enveloped + C14N · Id="SignatureSunat" dentro del UBLExtensions</text>
+
+    <!-- 8 -->
+    <rect class="card" x="744" y="554" width="660" height="38" rx="6"/>
+    <rect x="756" y="563" width="34" height="20" rx="10" fill="#22d3ee" fill-opacity="0.16"/>
+    <text class="ntag" x="773" y="577" text-anchor="middle" fill="#22d3ee">8</text>
+    <text class="st" x="802" y="570">Verificar la firma en local</text>
+    <text class="sd" x="802" y="584">SignedXml.CheckSignature — un XML que no auto-verifica no se entrega</text>
+  </g>
+
+  <!-- ============ Banda 2 · flujo de emisión ============ -->
+  <text class="f sec" x="36" y="668">FLUJO DE EMISIÓN DE UNA VENTA</text>
+  <text class="f foot" x="36" y="690">El orquestador de origen recibe la venta del POS y devuelve el CDR. No hay worker en background: cada paso es una llamada explícita y la cola vive en SQL Server.</text>
+
+  <g class="f">
+    <!-- nodo 1 -->
+    <rect class="card" x="36" y="712" width="196" height="104" rx="8"/>
+    <rect x="50" y="726" width="30" height="18" rx="9" fill="#22d3ee"/>
+    <text class="ntag" x="65" y="739" text-anchor="middle">01</text>
+    <text class="nt" x="50" y="766">Origen</text>
+    <text class="m nd" x="50" y="788">SALE:{IdOrigen}</text>
+    <text class="m nd2" x="50" y="804">+ CorrelationId</text>
+
+    <!-- nodo 2 -->
+    <rect class="card" x="260" y="712" width="196" height="104" rx="8"/>
+    <rect x="274" y="726" width="30" height="18" rx="9" fill="#22d3ee"/>
+    <text class="ntag" x="289" y="739" text-anchor="middle">02</text>
+    <text class="nt" x="274" y="766">Orquestador</text>
+    <text class="m nd" x="274" y="788">ProcesarDocumento</text>
+    <text class="m nd2" x="274" y="804">DesdeOrigen</text>
+
+    <!-- nodo 3 -->
+    <rect class="card" x="484" y="712" width="196" height="104" rx="8"/>
+    <rect x="498" y="726" width="30" height="18" rx="9" fill="#22d3ee"/>
+    <text class="ntag" x="513" y="739" text-anchor="middle">03</text>
+    <text class="nt" x="498" y="766">Idempotencia</text>
+    <text class="m nd" x="498" y="788">clave SALE:{id}</text>
+    <text class="m nd2" x="498" y="804">un replay no duplica</text>
+
+    <!-- nodo 4 -->
+    <rect class="card" x="708" y="712" width="196" height="104" rx="8"/>
+    <rect x="722" y="726" width="30" height="18" rx="9" fill="#22d3ee"/>
+    <text class="ntag" x="737" y="739" text-anchor="middle">04</text>
+    <text class="nt" x="722" y="766">Cola durable</text>
+    <text class="m nd" x="722" y="788">SUNAT.</text>
+    <text class="m nd2" x="722" y="804">ProcesoElectronico PENDIENTE</text>
+
+    <!-- nodo 5 -->
+    <rect class="card" x="932" y="712" width="196" height="104" rx="8"/>
+    <rect x="946" y="726" width="30" height="18" rx="9" fill="#22d3ee"/>
+    <text class="ntag" x="961" y="739" text-anchor="middle">05</text>
+    <text class="nt" x="946" y="766">Emisión</text>
+    <text class="m nd" x="946" y="788">pipeline pre-firma</text>
+    <text class="m nd2" x="946" y="804">LISTO_PARA_EMITIR</text>
+
+    <!-- nodo 6 -->
+    <rect class="card" x="1156" y="712" width="196" height="104" rx="8"/>
+    <rect x="1170" y="726" width="30" height="18" rx="9" fill="#34d399"/>
+    <text class="ntag" x="1185" y="739" text-anchor="middle">06</text>
+    <text class="nt" x="1170" y="766">Envío y CDR</text>
+    <text class="m nd" x="1170" y="788">claim atómico → SOAP</text>
+    <text class="m nd2" x="1170" y="804">ACEPTADO / RECHAZADO</text>
+
+    <!-- conectores -->
+    <line x1="232" y1="764" x2="256" y2="764" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+    <line x1="456" y1="764" x2="480" y2="764" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+    <line x1="680" y1="764" x2="704" y2="764" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+    <line x1="904" y1="764" x2="928" y2="764" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+    <line x1="1128" y1="764" x2="1152" y2="764" stroke="#525252" stroke-width="1.5" marker-end="url(#punta)"/>
+  </g>
+
+  <text class="f foot" x="36" y="846">Reintentos: hasta 3 intentos por defecto. Un claim huérfano (proceso muerto en ENVIANDO con más de 5 minutos) vuelve a ser reclamable.</text>
+
+  <!-- ============ Banda 3 · izquierda: comprobantes ============ -->
+  <text class="f sec" x="36" y="922">COMPROBANTES SOPORTADOS</text>
+
+  <g class="f">
+    <rect class="card" x="36" y="940" width="664" height="38" rx="6"/>
+    <rect x="50" y="949" width="34" height="20" rx="6" fill="#60a5fa" fill-opacity="0.18"/>
+    <text class="ntag" x="67" y="963" text-anchor="middle" fill="#60a5fa">01</text>
+    <text class="st" x="96" y="956">Factura electrónica</text>
+    <text class="m sd" x="96" y="970">UBL 2.1 · Invoice</text>
+
+    <rect class="card" x="36" y="984" width="664" height="38" rx="6"/>
+    <rect x="50" y="993" width="34" height="20" rx="6" fill="#60a5fa" fill-opacity="0.18"/>
+    <text class="ntag" x="67" y="1007" text-anchor="middle" fill="#60a5fa">03</text>
+    <text class="st" x="96" y="1000">Boleta de venta electrónica</text>
+    <text class="m sd" x="96" y="1014">UBL 2.1 · Invoice</text>
+
+    <rect class="card" x="36" y="1028" width="664" height="38" rx="6"/>
+    <rect x="50" y="1037" width="34" height="20" rx="6" fill="#a78bfa" fill-opacity="0.18"/>
+    <text class="ntag" x="67" y="1051" text-anchor="middle" fill="#a78bfa">07</text>
+    <text class="st" x="96" y="1044">Nota de Crédito</text>
+    <text class="m sd" x="96" y="1058">UBL 2.1 · CreditNote-2</text>
+
+    <rect class="card" x="36" y="1072" width="664" height="38" rx="6"/>
+    <rect x="50" y="1081" width="34" height="20" rx="6" fill="#a78bfa" fill-opacity="0.18"/>
+    <text class="ntag" x="67" y="1095" text-anchor="middle" fill="#a78bfa">08</text>
+    <text class="st" x="96" y="1088">Nota de Débito</text>
+    <text class="m sd" x="96" y="1102">UBL 2.1 · DebitNote-2</text>
+
+    <rect class="card" x="36" y="1116" width="664" height="38" rx="6"/>
+    <rect x="50" y="1125" width="34" height="20" rx="6" fill="#fbbf24" fill-opacity="0.18"/>
+    <text class="ntag" x="67" y="1139" text-anchor="middle" fill="#fbbf24">09</text>
+    <text class="st" x="96" y="1132">Guía de Remisión Remitente</text>
+    <text class="m sd" x="96" y="1146">UBL 2.1 · DespatchAdvice · GRE REST OAuth 2.0</text>
+  </g>
+
+  <!-- ============ Banda 3 · derecha: suite de pruebas ============ -->
+  <text class="f sec" x="744" y="922">SUITE DE PRUEBAS</text>
+
+  <text class="f" x="744" y="994" font-size="52" font-weight="700" fill="#34d399">129</text>
+  <text class="f" x="850" y="976" font-size="13" fill="#a3a3a3">casos en verde</text>
+  <text class="f" x="850" y="994" font-size="13" fill="#737373">0 fallos · 6 s</text>
+
+  <g class="f bull">
+    <text x="744" y="1040">· 91 métodos xUnit: 79 [Fact] + 12 [Theory]</text>
+    <text x="744" y="1066">· Firma, builders UBL y validadores de los tipos 01/03/07/08/09</text>
+    <text x="744" y="1092">· Correlativo atómico bajo concurrencia (N = 20)</text>
+    <text x="744" y="1118">· Idempotencia, transiciones de estado y reintentos con CDR simulado</text>
+    <text x="744" y="1144">· Fixtures grabados contra SUNAT Beta</text>
+  </g>
+</svg>

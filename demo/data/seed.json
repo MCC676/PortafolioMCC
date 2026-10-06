@@ -1,0 +1,49 @@
+{
+  "_nota": "Datos ficticios generados para la demo. No corresponden a ninguna empresa ni cliente real.",
+  "empresa": {
+    "nombre": "Transportes Andinos del Sur",
+    "ruc": "20512345678",
+    "sucursal": "Agencia Arequipa",
+    "usuario": "Demo Usuario"
+  },
+  "categorias": ["Bebidas", "Abarrotes", "Limpieza", "Snacks", "Útiles"],
+  "productos": [
+    { "id": 1, "codigo": "BEB-001", "nombre": "Coca Cola 500 ml", "categoria": "Bebidas", "precio": 3.5, "stock": 48, "stockMinimo": 12 },
+    { "id": 2, "codigo": "BEB-002", "nombre": "Agua San Mateo 600 ml", "categoria": "Bebidas", "precio": 2.0, "stock": 72, "stockMinimo": 24 },
+    { "id": 3, "codigo": "BEB-003", "nombre": "Inca Kola 1.5 L", "categoria": "Bebidas", "precio": 7.5, "stock": 30, "stockMinimo": 10 },
+    { "id": 4, "codigo": "ABA-001", "nombre": "Arroz extra 5 kg", "categoria": "Abarrotes", "precio": 18.9, "stock": 25, "stockMinimo": 8 },
+    { "id": 5, "codigo": "ABA-002", "nombre": "Aceite vegetal 1 L", "categoria": "Abarrotes", "precio": 9.8, "stock": 40, "stockMinimo": 12 },
+    { "id": 6, "codigo": "ABA-003", "nombre": "Azúcar rubia 1 kg", "categoria": "Abarrotes", "precio": 4.2, "stock": 6, "stockMinimo": 10 },
+    { "id": 7, "codigo": "ABA-004", "nombre": "Leche evaporada tarro", "categoria": "Abarrotes", "precio": 5.4, "stock": 60, "stockMinimo": 20 },
+    { "id": 8, "codigo": "LIM-001", "nombre": "Detergente 1 kg", "categoria": "Limpieza", "precio": 12.5, "stock": 18, "stockMinimo": 6 },
+    { "id": 9, "codigo": "LIM-002", "nombre": "Lejía 1 L", "categoria": "Limpieza", "precio": 6.9, "stock": 9, "stockMinimo": 10 },
+    { "id": 10, "codigo": "SNA-001", "nombre": "Galleta soda", "categoria": "Snacks", "precio": 1.2, "stock": 120, "stockMinimo": 30 },
+    { "id": 11, "codigo": "SNA-002", "nombre": "Chocolate 30 g", "categoria": "Snacks", "precio": 1.5, "stock": 85, "stockMinimo": 25 },
+    { "id": 12, "codigo": "UTI-001", "nombre": "Cuaderno A4 100 hojas", "categoria": "Útiles", "precio": 4.5, "stock": 3, "stockMinimo": 8 }
+  ],
+  "ventas": [
+    { "id": 1, "comprobante": "F001-0000126", "cliente": "Bodega San Juan", "fecha": "2026-10-06", "hora": "08:42", "total": 245.5, "estado": "Emitida" },
+    { "id": 2, "comprobante": "B001-0000004", "cliente": "Clientes varios", "fecha": "2026-10-06", "hora": "09:15", "total": 38.9, "estado": "Emitida" },
+    { "id": 3, "comprobante": "F001-0000127", "cliente": "Minimarket El Sol", "fecha": "2026-10-06", "hora": "10:04", "total": 512.0, "estado": "Emitida" },
+    { "id": 4, "comprobante": "B001-0000005", "cliente": "Clientes varios", "fecha": "2026-10-06", "hora": "11:28", "total": 76.4, "estado": "Pendiente" },
+    { "id": 5, "comprobante": "F001-0000128", "cliente": "Distribuidora Misti", "fecha": "2026-10-05", "hora": "16:51", "total": 890.0, "estado": "Emitida" },
+    { "id": 6, "comprobante": "B001-0000003", "cliente": "Clientes varios", "fecha": "2026-10-05", "hora": "17:33", "total": 124.7, "estado": "Anulada" },
+    { "id": 7, "comprobante": "F001-0000125", "cliente": "Bodega Doña Rosa", "fecha": "2026-10-04", "hora": "12:09", "total": 340.25, "estado": "Emitida" }
+  ],
+  "encomiendas": [
+    { "id": 1, "guia": "NV-000452", "origen": "Arequipa", "destino": "Cusco", "destinatario": "Comercial Quispe", "peso": 12.5, "estado": "En tránsito" },
+    { "id": 2, "guia": "NV-000453", "origen": "Arequipa", "destino": "Puno", "destinatario": "Farmacia del Sur", "peso": 4.0, "estado": "En agencia" },
+    { "id": 3, "guia": "NV-000454", "origen": "Arequipa", "destino": "Moquegua", "destinatario": "Ferretería Central", "peso": 28.3, "estado": "En tránsito" },
+    { "id": 4, "guia": "NV-000455", "origen": "Arequipa", "destino": "Tacna", "destinatario": "Bodega Lucero", "peso": 6.8, "estado": "Entregado" },
+    { "id": 5, "guia": "NV-000456", "origen": "Arequipa", "destino": "Cusco", "destinatario": "Textiles Andinos", "peso": 45.0, "estado": "En tránsito" }
+  ],
+  "ventasSemana": [
+    { "dia": "Lun", "monto": 1240.5 },
+    { "dia": "Mar", "monto": 1580.0 },
+    { "dia": "Mié", "monto": 980.75 },
+    { "dia": "Jue", "monto": 1720.4 },
+    { "dia": "Vie", "monto": 2140.9 },
+    { "dia": "Sáb", "monto": 2680.3 },
+    { "dia": "Dom", "monto": 1130.6 }
+  ]
+}
