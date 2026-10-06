@@ -3,3 +3,89 @@
 @import "preline/variants.css";
 @plugin "@tailwindcss/forms";
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Movimiento y profundidad globales.
+
+   La idea es que la página se sienta viva sin llamar la atención: nada rebota,
+   nada gira, todo se desplaza unos pocos píxeles y con curvas suaves.
+   --------------------------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+  /* El header es sticky y ocupa ~64px: sin este margen, al pulsar "Proyectos"
+     el título de la sección aterriza justo debajo del pill. */
+  scroll-padding-top: 5.5rem;
+}
+
+/* Halos de ambiente: dos manchas muy tenues y fijas detrás del contenido, para
+   que el fondo no sea un plano muerto. No capturan el puntero. */
+.fondo-ambiente::before,
+.fondo-ambiente::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(110px);
+}
+
+.fondo-ambiente::before {
+  width: 42rem;
+  height: 42rem;
+  top: -16rem;
+  left: -14rem;
+  background: rgb(34 211 238 / 0.1);
+}
+
+.fondo-ambiente::after {
+  width: 34rem;
+  height: 34rem;
+  right: -12rem;
+  bottom: -14rem;
+  background: rgb(56 189 248 / 0.09);
+}
+
+/* Aparición al entrar en pantalla. La clase .revelar la añade la directiva
+   [appReveal] por JS, nunca el HTML: si el JavaScript no corre, el contenido se
+   ve igual. Es decir, esto no puede dejar la página en blanco. */
+.revelar {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.revelar-visible {
+  opacity: 1;
+  transform: none;
+}
+
+::selection {
+  background: rgb(34 211 238 / 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .revelar,
+  .revelar-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* El resto de transiciones del sitio (hover, cambios de color) también se
+     apagan: quien pide menos movimiento no quiere que le quede medio sitio
+     animándose. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

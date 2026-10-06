@@ -1,42 +1,226 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5" id="projects">
+<h2 class="mb-5 font-medium text-white">Proyectos</h2>
 
-  <a class="group block relative rounded-lg border border-transparent hover:border-cyan-400 transition-all duration-300 p-4 bg-neutral-900 flex flex-col justify-between min-h-[260px]"
-    href="https://www.google.com" target="_blank">
-    <img class="w-full h-40 object-cover rounded-md mb-4"
-      src="https://images.unsplash.com/photo-1656618724305-a4257e46e847?q=80&w=320" alt="Project" />
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+  @for (p of proyectos; track p.id; let i = $index) {
+  <article
+    class="group relative flex flex-col cursor-pointer overflow-hidden rounded-xl border border-neutral-800 bg-gradient-to-b from-neutral-900 to-neutral-950 p-4 transition duration-300 ease-out hover:-translate-y-1.5 hover:border-cyan-400/60 hover:shadow-2xl hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+    (click)="abrir(p)"
+    (keydown.enter)="abrir(p)"
+    tabindex="0"
+    role="button"
+    [attr.aria-label]="'Ver capturas de ' + p.nombre"
+    [appReveal]="i * 80"
+  >
+    <!-- Filo superior que se enciende al pasar por encima: da volumen sin
+         recargar la tarjeta. -->
+    <span
+      class="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      aria-hidden="true"
+    ></span>
 
-    <h3 class="text-white font-semibold group-hover:text-cyan-400 transition">
-      Project Title
+    <!-- El contenedor recorta el zoom de la imagen, que si no se sale de la
+         tarjeta al pasar el puntero. -->
+    <div class="mb-4 overflow-hidden rounded-lg bg-neutral-800">
+      <img
+        class="h-40 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+        [src]="p.portada"
+        [alt]="'Captura de ' + p.nombre"
+        loading="lazy"
+      />
+    </div>
+
+    <h3 class="font-semibold text-white transition-colors group-hover:text-cyan-400">
+      {{ p.nombre }}
     </h3>
 
-    <p class="text-sm text-neutral-400 mt-1">
-      Short description of the project goes here. It can be 1 or 2 lines.
-    </p>
+    <p class="mt-1 text-sm text-neutral-400">{{ p.resumen }}</p>
 
     <div class="mt-3 flex flex-wrap gap-2">
-      <span class="bg-neutral-800 text-xs text-white px-2 py-1 rounded">Angular</span>
-      <span class="bg-neutral-800 text-xs text-white px-2 py-1 rounded">Tailwind</span>
-      <span class="bg-neutral-800 text-xs text-white px-2 py-1 rounded">Firebase</span>
+      @for (t of p.stack; track t) {
+      <span
+        class="rounded-full border border-neutral-800 bg-neutral-800/60 px-2.5 py-1 text-xs text-neutral-300"
+        >{{ t }}</span
+      >
+      }
     </div>
-  </a>
-  <a class="group block relative rounded-lg border border-transparent hover:border-cyan-400 transition-all duration-300 p-4 bg-neutral-900 flex flex-col justify-between min-h-[260px]"
-    href="https://www.google.com" target="_blank">
-    <img class="w-full h-40 object-cover rounded-md mb-4"
-      src="https://images.unsplash.com/photo-1656618724305-a4257e46e847?q=80&w=320" alt="Project" />
 
-    <h3 class="text-white font-semibold group-hover:text-cyan-400 transition">
-      Project Title
-    </h3>
+    <!-- mt-auto empuja el pie al fondo para que las 3 tarjetas queden alineadas.
+         Va en columna porque a 3 columnas la tarjeta queda estrecha y los dos
+         botones no caben en la misma línea sin partir el texto. -->
+    <div class="mt-auto pt-4 flex flex-col gap-2">
+      <button
+        type="button"
+        class="inline-flex items-center gap-1 self-start text-xs font-medium text-cyan-400 transition-colors hover:text-cyan-300"
+        (click)="abrir(p); $event.stopPropagation()"
+      >
+        Ver capturas ({{ p.capturas.length }})
+        <span
+          class="transition-transform duration-300 group-hover:translate-x-0.5"
+          aria-hidden="true"
+          >&rarr;</span
+        >
+      </button>
 
-    <p class="text-sm text-neutral-400 mt-1">
-      Short description of the project goes here. It can be 1 or 3 lines an writes.
-    </p>
-
-    <div class="mt-3 flex flex-wrap gap-2">
-      <span class="bg-neutral-800 text-xs text-white px-2 py-1 rounded">Angular</span>
-      <span class="bg-neutral-800 text-xs text-white px-2 py-1 rounded">Tailwind</span>
-      <span class="bg-neutral-800 text-xs text-white px-2 py-1 rounded">Firebase</span>
+      @if (p.demo) {
+      <a
+        class="rounded bg-cyan-400 px-3 py-1.5 text-center text-xs font-medium text-neutral-950 transition duration-300 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/25"
+        [href]="p.demo"
+        target="_blank"
+        rel="noopener"
+        (click)="$event.stopPropagation()"
+      >
+        Ver demo
+      </a>
+      }
     </div>
-  </a>
-
+  </article>
+  }
 </div>
+
+<!-- ================= Galería ================= -->
+@if (abierto(); as p) {
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6">
+  <div class="fondo-entra absolute inset-0 bg-black/85 backdrop-blur-sm" (click)="cerrar()"></div>
+
+  <div
+    class="panel-entra relative w-full max-w-6xl max-h-[92vh] bg-neutral-900 border border-neutral-800 rounded-xl shadow-2xl shadow-black/60 overflow-hidden flex flex-col"
+  >
+    <!-- Cabecera -->
+    <div class="flex items-center gap-4 px-5 py-3 border-b border-neutral-800">
+      <h3 class="text-white font-semibold">{{ p.nombre }}</h3>
+      <span class="text-xs text-neutral-500">
+        {{ indice() + 1 }} / {{ p.capturas.length }}
+      </span>
+      <button
+        type="button"
+        class="ms-auto text-neutral-400 hover:text-white transition text-xl leading-none px-2"
+        (click)="cerrar()"
+        aria-label="Cerrar"
+      >
+        &times;
+      </button>
+    </div>
+
+    <!-- Cuerpo -->
+    <div class="flex-1 overflow-y-auto grid lg:grid-cols-[1.55fr_1fr]">
+      <!-- Imagen -->
+      <div class="p-4 flex flex-col gap-3 lg:border-e lg:border-neutral-800">
+        <div class="relative rounded-lg bg-neutral-950 border border-neutral-800 overflow-hidden">
+          <!-- Las tomas muy altas (Swagger, el diagrama) quedan ilegibles al
+               encajarlas en 52vh, así que la imagen abre el archivo original. -->
+          <a
+            class="block cursor-zoom-in"
+            [href]="p.capturas[indice()].archivo"
+            target="_blank"
+            rel="noopener"
+            title="Ver a tamaño completo"
+          >
+            <!-- @for sobre una lista de un solo elemento: al cambiar de captura
+                 se destruye el <img> y se crea otro, y un nodo nuevo siempre
+                 dispara su animación — cosa que no pasa si solo cambia el src,
+                 porque la clase de opacidad entraría y saldría en el mismo
+                 fotograma sin llegar a pintarse. -->
+            @for (c of capturaActual(); track c.archivo) {
+            <img
+              class="fundido-entra w-full h-[46vh] lg:h-[52vh] object-contain"
+              [src]="c.archivo"
+              [alt]="c.titulo"
+            />
+            }
+          </a>
+
+          @if (p.capturas.length > 1) {
+          <button
+            type="button"
+            class="absolute start-2 top-1/2 -translate-y-1/2 size-9 rounded-full bg-black/60 text-white transition hover:bg-black/80 hover:scale-105"
+            (click)="ir(-1)"
+            aria-label="Anterior"
+          >
+            &#8249;
+          </button>
+          <button
+            type="button"
+            class="absolute end-2 top-1/2 -translate-y-1/2 size-9 rounded-full bg-black/60 text-white transition hover:bg-black/80 hover:scale-105"
+            (click)="ir(1)"
+            aria-label="Siguiente"
+          >
+            &#8250;
+          </button>
+          }
+        </div>
+
+        <p class="text-xs text-neutral-400 text-center">
+          {{ p.capturas[indice()].titulo }}
+        </p>
+
+        <!-- Miniaturas -->
+        @if (p.capturas.length > 1) {
+        <div class="flex flex-wrap gap-2 justify-center">
+          @for (c of p.capturas; track c.archivo; let i = $index) {
+          <button
+            type="button"
+            class="rounded border-2 overflow-hidden transition duration-300 hover:opacity-100"
+            [class.border-cyan-400]="i === indice()"
+            [class.border-transparent]="i !== indice()"
+            [class.opacity-55]="i !== indice()"
+            (click)="irA(i)"
+            [attr.aria-label]="c.titulo"
+          >
+            <img
+              [class]="'object-cover bg-neutral-950 ' + (c.vertical ? 'w-9 h-16' : 'w-24 h-16')"
+              [src]="c.archivo"
+              [alt]="c.titulo"
+            />
+          </button>
+          }
+        </div>
+        }
+      </div>
+
+      <!-- Ficha -->
+      <div class="p-5 flex flex-col gap-4">
+        <p class="text-sm text-neutral-300">{{ p.descripcion }}</p>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Qué resuelve
+          </h4>
+          <ul class="space-y-2">
+            @for (l of p.logros; track l) {
+            <li class="text-sm text-neutral-400 flex gap-2">
+              <span class="text-cyan-400 shrink-0">&bull;</span>
+              <span>{{ l }}</span>
+            </li>
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+            Stack
+          </h4>
+          <div class="flex flex-wrap gap-2">
+            @for (t of p.stack; track t) {
+            <span
+              class="rounded-full border border-neutral-800 bg-neutral-800/60 px-2.5 py-1 text-xs text-neutral-300"
+              >{{ t }}</span
+            >
+            }
+          </div>
+        </div>
+
+        @if (p.demo) {
+        <a
+          class="mt-auto inline-flex justify-center items-center gap-2 rounded-md bg-cyan-400 text-neutral-950 text-sm font-semibold px-4 py-2.5 transition duration-300 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/25"
+          [href]="p.demo"
+          target="_blank"
+          rel="noopener"
+        >
+          Abrir la demo navegable
+        </a>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+}

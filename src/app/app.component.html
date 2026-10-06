@@ -1,9 +1,9 @@
-<div class="bg-white dark:bg-black">
-  <app-header></app-header>
-  <app-content></app-content>
-  <app-footer></app-footer>
+<!-- .fondo-ambiente pinta dos halos fijos detrás de todo (ver styles.css), así
+     que el contenido va en una capa por encima para que no lo tiñan. -->
+<div class="fondo-ambiente relative bg-white transition-colors duration-500 dark:bg-black">
+  <div class="relative z-10">
+    <app-header></app-header>
+    <app-content></app-content>
+    <app-footer></app-footer>
+  </div>
 </div>
-
-
-
-

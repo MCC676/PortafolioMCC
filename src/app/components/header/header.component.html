@@ -1,9 +1,12 @@
 <!-- ========== HEADER ========== -->
+<!-- La barra es flotante (el nav es un pill), así que el header necesita su
+     propia banda con blur: sin ella el texto de la página se lee por detrás del
+     pill y alrededor suyo al hacer scroll. -->
 <header
-  class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm"
+  class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm bg-white/90 dark:bg-neutral-950/90 backdrop-blur-lg"
 >
   <nav
-    class="mt-4 relative max-w-2xl w-full bg-white border border-gray-200 rounded-full mx-2 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto dark:bg-neutral-900 dark:border-neutral-700"
+    class="mt-4 relative max-w-2xl w-full bg-white border border-gray-200 rounded-full mx-2 py-2.5 shadow-sm shadow-gray-200/70 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-black/40"
   >
     <div class="px-4 md:px-0 flex justify-between items-center">
       <div class="flex items-center">
@@ -11,7 +14,7 @@
         <a
           class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
           href="#"
-          aria-label="Preline"
+          aria-label="Inicio"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -159,23 +162,17 @@
           class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-gray-800 font-medium text-gray-800 focus:outline-hidden dark:border-neutral-200 dark:text-neutral-200"
           href="#experience"
           aria-current="page"
-          >Experience</a
+          >Experiencia</a
         >
         <a
           class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200"
           href="#projects"
-          >Projects</a
+          >Proyectos</a
         >
         <a
           class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200"
-          href="#education"
-          >Education</a
-        >
-
-        <a
-          class="py-0.5 md:py-3 px-4 md:px-1 border-s-2 md:border-s-0 md:border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-neutral-200"
-          href="#skills"
-          >Skills</a
+          href="#contacto"
+          >Contacto</a
         >
       </div>
     </div>
