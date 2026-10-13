@@ -59,34 +59,41 @@
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">APIs e integraciones.</strong>
-          Diseñé e implementé middleware en .NET 9 para integrar el ERP Exactus, el TMS Logaware y
-          aplicaciones internas mediante APIs REST, autenticación por token, validaciones de negocio,
-          control de límites y manejo estandarizado de errores.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Desarrollo end-to-end.</strong>
+          Funcionalidades para módulos de RR. HH., Producción, Logística y operaciones internas, con
+          backend .NET/C#, interfaces Angular/Vue.js y persistencia mediante EF Core y SQL Server.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Servicios backend modulares.</strong>
-          Construí módulos para RR. HH., Producción, Logística, Cobranzas y Pesado de Materia Prima
-          sobre .NET y frontends Angular/Vue, con separación por capas, inyección de dependencias y
-          API Gateway Ocelot para enrutamiento, autenticación y rate limiting.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">APIs REST y servicios modulares.</strong>
+          Diseñé y mantuve APIs con separación por capas, inyección de dependencias, reglas de negocio,
+          documentación OpenAPI/Swagger y manejo estandarizado de errores.
+        </li>
+        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Integraciones ERP y TMS.</strong>
+          Conecté el ERP Exactus, el TMS Logaware y aplicaciones internas mediante APIs REST, con
+          autenticación por token, validación de contratos, staging, trazabilidad, control de
+          duplicados y recuperación ante fallos.
+        </li>
+        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Flujos de producción.</strong>
+          Construí procesos de programación y asistencia de producción: cargas masivas, transferencias
+          de personal, sobretiempo, catálogos, estados y auditoría de operaciones.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
           <strong class="font-medium text-gray-800 dark:text-neutral-300">Procesamiento asíncrono.</strong>
-          Implementé flujos SSIS entre Logaware y Exactus para sincronizar vehículos, conductores,
-          transportistas, órdenes y guías, con staging, tablas de log, reintentos y workers en C#
-          para procesamiento controlado, idempotencia y recuperación ante fallos.
+          Automaticé sincronizaciones con SSIS y workers en C#, entre Logaware y Exactus, incorporando
+          logs, reintentos e idempotencia para dar confiabilidad a las integraciones.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Despliegue con agentes IA.</strong>
-          Diseñé agentes basados en Claude Code orquestados mediante MCP para automatizar el despliegue
-          con pipelines CI/CD y la publicación en servidores remotos por SSH: build, transferencia de
-          artefactos, configuración de servicios y verificación post-deploy.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Datos y despliegue.</strong>
+          Optimicé consultas y procedimientos en SQL Server, y configuré publicaciones en IIS/HTTPS y
+          el API Gateway Ocelot para enrutamiento, autenticación y rate limiting.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Datos y rendimiento.</strong>
-          Implementé agentes de base de datos mediante MCP para la revisión e implementación de
-          procedimientos, vistas y procesos transaccionales en SQL Server, optimizando consultas y
-          validaciones de integridad.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Desarrollo asistido por IA.</strong>
+          Incorporé flujos de trabajo con Claude Code, Codex y DeepSeek, configurando agentes, MCP y
+          skills para análisis de código, consultas SQL, revisión y automatización de despliegues por
+          SSH, con validación continua.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
           <strong class="font-medium text-gray-800 dark:text-neutral-300">Sistemas heredados y análisis de procesos.</strong>
@@ -158,25 +165,22 @@
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
           <strong class="font-medium text-gray-800 dark:text-neutral-300">Rendimiento y APIs.</strong>
-          Mejoré el rendimiento de reportes financieros en SQL Server con tuning avanzado (SQL
-          Profiler, Query Store, CTE, window functions, índices cubrientes) y expuse los resultados
-          como APIs REST en .NET/C#, documentando los endpoints y validándolos con pruebas unitarias.
+          Optimicé consultas y reportes financieros en SQL Server con SQL Profiler, Query Store, CTE,
+          funciones de ventana e índices cubrientes, y expuse los resultados como APIs REST en
+          .NET/C#, documentando los endpoints y validándolos con pruebas unitarias.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
           <strong class="font-medium text-gray-800 dark:text-neutral-300">Integración externa.</strong>
-          Desarrollé servicios web REST/SOAP para consultar estados de facturas, guías y boletas,
-          incorporando autenticación mediante API Key, validaciones y rate limiting.
+          Desarrollé servicios REST/SOAP para consultar estados de facturas, guías y boletas, con
+          autenticación mediante API Key, validaciones, control de solicitudes y pruebas en Postman.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Automatización.</strong>
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Automatización y soporte.</strong>
           Implementé procesos batch en .NET/C# para la generación de documentos PDF, XML y CSV, y
-          alertas automáticas por correo sobre stock crítico y facturas por vencer.
-        </li>
-        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Soporte y estabilidad.</strong>
-          Atendí incidencias críticas sobre una aplicación empaquetada con visibilidad limitada del
-          código, aplicando ingeniería inversa (decompilación, análisis de logs y trazas en runtime)
-          para diagnosticar causa raíz y documentar los procedimientos en Confluence.
+          alertas automáticas sobre stock crítico y facturas por vencer; atendí incidencias críticas
+          sobre una aplicación empaquetada con visibilidad limitada del código, aplicando ingeniería
+          inversa (decompilación, análisis de logs y trazas en runtime) para diagnosticar causa raíz y
+          documentar los procedimientos en Confluence.
         </li>
       </ul>
     </div>
@@ -235,16 +239,16 @@
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Mantenimiento y APIs.</strong>
           Mantuve aplicaciones web MVC en Java 17 con Spring Boot 3 y Apache Tomcat, gestionadas con
-          Maven y persistencia vía JPA/Hibernate sobre SQL Server.
+          Maven y persistencia JPA/Hibernate sobre SQL Server, e implementé una API REST para validar
+          archivos adjuntos en formularios de mantenimiento, con reglas de formato, tamaño y manejo
+          de errores.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          Implementé una API REST para validar archivos adjuntos en formularios de mantenimiento,
-          incluyendo reglas de formato, tamaño y manejo de errores.
-        </li>
-        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          Implementé el flujo completo de autenticación OAuth 2.0 con Google Identity Platform,
-          integrando el modelo Authorization Code Grant para el inicio de sesión y registro de usuarios.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Autenticación.</strong>
+          Integré el flujo completo de OAuth 2.0 con Google Identity Platform mediante Authorization
+          Code Grant, para el inicio de sesión y registro de usuarios.
         </li>
       </ul>
     </div>
@@ -303,12 +307,14 @@
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Integración de servicios.</strong>
           Consumí y validé APIs REST mediante JavaScript, $.ajax() y fetch(), implementando manejo
           centralizado de errores HTTP, timeouts y reintentos con backoff exponencial.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          Diseñé la estrategia de branching y el flujo colaborativo con GitHub para equipos
-          multidisciplinarios, estableciendo estándares de versionamiento y revisión de cambios.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Flujo colaborativo.</strong>
+          Apoyé las prácticas de branching y versionamiento colaborativo con Git/GitHub en equipos
+          multidisciplinarios, con revisión de cambios.
         </li>
       </ul>
     </div>
