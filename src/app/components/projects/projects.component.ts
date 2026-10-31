@@ -15,6 +15,10 @@ export interface Proyecto {
   /** Una o dos líneas para la tarjeta. */
   resumen: string;
   descripcion: string;
+  /** Naturaleza del proyecto, para que el lector sepa qué parte es tuya. */
+  tipo: string;
+  /** Qué hiciste tú dentro del proyecto. */
+  rol: string;
   stack: string[];
   logros: string[];
   /** Imagen de la tarjeta: no siempre es la primera captura, porque algunas
@@ -57,6 +61,8 @@ export class ProjectsComponent {
         'App móvil y panel de administración para descubrir eventos en Perú. La cartelera se alimenta sola desde tres ticketeras y pasa por una cola de revisión humana.',
       descripcion:
         'Producto completo: ingesta automática de eventos desde las principales ticketeras del país, análisis de flyers con IA, revisión humana antes de publicar y una app móvil para el usuario final. Desplegado en un VPS con Docker y Caddy.',
+      tipo: 'Producto propio',
+      rol: 'Diseño de producto, backend, app móvil y despliegue',
       stack: ['Flutter', '.NET 9', 'Angular 19', 'SQL Server', 'Python', 'Playwright', 'OpenAI', 'Docker'],
       logros: [
         'Tres scrapers en producción, con scoring de confianza y cola de revisión humana antes de publicar.',
@@ -79,6 +85,8 @@ export class ProjectsComponent {
         'Sistema logístico-financiero para una empresa de transporte: ventas, inventario, almacenes y emisión electrónica integrada con SUNAT.',
       descripcion:
         'Sistema de gestión completo sobre Clean Architecture, con autenticación propia y con Google, control de stock por almacén y un flujo de venta que termina emitiendo el comprobante ante SUNAT. La demo pública reproduce el frontend con datos ficticios.',
+      tipo: 'Proyecto propio',
+      rol: 'Arquitectura, backend, frontend y puesta en producción',
       stack: ['.NET 8', 'Angular 14', 'SQL Server', 'EF Core', 'Material', 'Tailwind', 'JWT', 'Google OAuth'],
       logros: [
         'Integración venta → SUNAT con patrón Outbox: worker con claim atómico y reintentos con backoff.',
@@ -107,6 +115,8 @@ export class ProjectsComponent {
         'Motor de comprobantes de pago electrónicos: construye el XML UBL 2.1, lo valida, lo firma y lo envía a SUNAT. Expone 23 endpoints REST.',
       descripcion:
         'Motor de facturación electrónica sobre Clean Architecture, sin interfaz gráfica: toda la operación pasa por su API REST y Swagger. Cubre la construcción y firma del XML, la validación previa contra los esquemas oficiales y el envío a SUNAT con lectura del CDR.',
+      tipo: 'Proyecto propio',
+      rol: 'Arquitectura, API REST, firma digital y pruebas',
       stack: ['.NET 8', 'Clean Architecture', 'UBL 2.1', 'XMLDSig', 'SQL Server', 'EF Core', 'Dapper', 'xUnit'],
       logros: [
         'Comprobantes 01, 03, 07 y 08 aceptados por SUNAT Beta con CDR en 0.',

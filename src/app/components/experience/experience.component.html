@@ -2,7 +2,7 @@
 <br>
 <!-- El ancla va en el título, no en la lista: si no, al pulsar "Experiencia" en
      el menú se aterriza en el primer puesto y el encabezado queda por encima. -->
-<h2 id="experience" class="mb-5 font-medium text-gray-800 dark:text-neutral-200">
+<h2 id="experience" class="scroll-mt-24 mb-5 font-medium text-gray-800 dark:text-neutral-200">
   Experiencia
 </h2>
 <!-- La línea de tiempo entra como un bloque: si cada puesto apareciera por
@@ -59,53 +59,40 @@
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Desarrollo end-to-end.</strong>
-          Funcionalidades para módulos de RR. HH., Producción, Logística y operaciones internas, con
-          backend .NET/C#, interfaces Angular/Vue.js y persistencia mediante EF Core y SQL Server.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Portal corporativo InkaCrops (300–400 usuarios).</strong>
+          Único desarrollador: sostengo préstamos, adelantos, venta interna, beneficios, alimentación y turnos.
+          Definí la arquitectura por capas con CQRS/MediatR, APIs REST detrás de un API Gateway (Ocelot + JWT),
+          frontend Angular y SQL Server.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">APIs REST y servicios modulares.</strong>
-          Diseñé y mantuve APIs con separación por capas, inyección de dependencias, reglas de negocio,
-          documentación OpenAPI/Swagger y manejo estandarizado de errores.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Módulos con resultado medible.</strong>
+          ~600 solicitudes de préstamos y adelantos con flujo de aprobaciones y cálculo de beneficios sociales,
+          antes registradas en papel; control de alimentación y asistencia de operarios, administrativos, almacén
+          y calidad. La merma bajó de S/ 8,000–11,000 a S/ 2,000–3,000 (−70%).
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Integraciones ERP y TMS.</strong>
-          Conecté el ERP Exactus, el TMS Logaware y aplicaciones internas mediante APIs REST, con
-          autenticación por token, validación de contratos, staging, trazabilidad, control de
-          duplicados y recuperación ante fallos.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Integraciones ERP, TMS y SUNAT.</strong>
+          Logaware ↔ Exactus (~1,000 pedidos/mes) con staging, idempotencia, logs y jobs; facturación electrónica
+          (~1,000 comprobantes/mes) con XML/UBL, SOAP y CDR; flujo con Filasur (~1,000 comprobantes/mes).
+          Los reprocesos bajaron de 40% a 5% y el diagnóstico de incidencias de 3–4 días a menos de 1.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Flujos de producción.</strong>
-          Construí procesos de programación y asistencia de producción: cargas masivas, transferencias
-          de personal, sobretiempo, catálogos, estados y auditoría de operaciones.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Sistemas heredados y deuda técnica.</strong>
+          Mantengo un portafolio monolítico en VB6, WinForms + DevExpress, ASPX/jQuery, C# y VB.NET: menú de
+          aplicaciones con una DLL por fuente, panel de administración, despliegue por ClickOnce y reportería.
+          Decido qué modernizar según riesgo operativo, impacto y esfuerzo.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Procesamiento asíncrono.</strong>
-          Automaticé sincronizaciones con SSIS y workers en C#, entre Logaware y Exactus, incorporando
-          logs, reintentos e idempotencia para dar confiabilidad a las integraciones.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Estándares, verificación y despliegue.</strong>
+          Definí el flujo de release (publicación, backup, smoke test) y el de verificación con casos de prueba,
+          oráculos SQL y pruebas automatizadas de API (Postman/newman, pytest). Ejecuto pipelines de GitHub
+          Actions y sincronizaciones con SSIS y workers en C#.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Datos y despliegue.</strong>
-          Optimicé consultas y procedimientos en SQL Server, y configuré publicaciones en IIS/HTTPS y
-          el API Gateway Ocelot para enrutamiento, autenticación y rate limiting.
-        </li>
-        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Desarrollo asistido por IA.</strong>
-          Incorporé flujos de trabajo con Claude Code, Codex y DeepSeek, configurando agentes, MCP y
-          skills para análisis de código, consultas SQL, revisión y automatización de despliegues por
-          SSH, con validación continua.
-        </li>
-        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Sistemas heredados y análisis de procesos.</strong>
-          Tomé a cargo un ERP heredado (C# WinForms + DevExpress) y mantuve los sistemas internos de
-          reportería con WinForms, C# y VB.NET. Lideré el análisis y la documentación de procesos,
-          entrevistando a usuarios de Producción, Almacén, RR. HH. y Comercial.
-        </li>
-        <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Portal de proveedores y balance de masa.</strong>
-          Desarrollé un portal de documentos para proveedores con .NET 6 y Vue.js, y diseñé un sistema
-          de auditoría de balance de masa de materias primas (fibra, hilo, desperdicio) con .NET 6 y
-          Angular 19.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Operación y evolución tecnológica.</strong>
+          Sostengo la plataforma y su base de datos en producción; optimizo consultas con SQL Profiler y Query
+          Store. Evalúo versiones y proveedores —de .NET Framework a .NET 9, Angular, contenedores, IA— y
+          sustento los trade-offs; incorporo flujos asistidos por IA (Claude Code, Codex, MCP) con validación.
         </li>
       </ul>
     </div>
@@ -164,23 +151,20 @@
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Rendimiento y APIs.</strong>
-          Optimicé consultas y reportes financieros en SQL Server con SQL Profiler, Query Store, CTE,
-          funciones de ventana e índices cubrientes, y expuse los resultados como APIs REST en
-          .NET/C#, documentando los endpoints y validándolos con pruebas unitarias.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">ERP corporativo en C#/ASP.NET y SQL Server.</strong>
+          Mantuve módulos de letras de canje, órdenes de compra, kardex y reportería; desarrollé web services
+          SOAP/XML para consultar facturas, guías y boletas en tiempo real, con API Key y pruebas en Postman.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Integración externa.</strong>
-          Desarrollé servicios REST/SOAP para consultar estados de facturas, guías y boletas, con
-          autenticación mediante API Key, validaciones, control de solicitudes y pruebas en Postman.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Rendimiento de consultas y reportes.</strong>
+          Optimicé con SQL Profiler, Query Store, CTE, funciones de ventana e índices cubrientes, y expuse los
+          resultados como APIs REST documentadas y con pruebas unitarias.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Automatización y soporte.</strong>
-          Implementé procesos batch en .NET/C# para la generación de documentos PDF, XML y CSV, y
-          alertas automáticas sobre stock crítico y facturas por vencer; atendí incidencias críticas
-          sobre una aplicación empaquetada con visibilidad limitada del código, aplicando ingeniería
-          inversa (decompilación, análisis de logs y trazas en runtime) para diagnosticar causa raíz y
-          documentar los procedimientos en Confluence.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Ingeniería inversa y soporte crítico.</strong>
+          Diagnostiqué una aplicación empaquetada sin código fuente mediante decompilación, logs y trazas en
+          runtime; documenté los procedimientos en Confluence y automaticé procesos batch de PDF, XML y CSV con
+          alertas de stock y vencimientos.
         </li>
       </ul>
     </div>
@@ -234,21 +218,19 @@
       </p>
 
       <p class="text-xs text-gray-500 dark:text-neutral-500">
-        Luxinnova &middot; Lima
+        Lux Intech Center S.A.C. &middot; Lima
       </p>
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Mantenimiento y APIs.</strong>
-          Mantuve aplicaciones web MVC en Java 17 con Spring Boot 3 y Apache Tomcat, gestionadas con
-          Maven y persistencia JPA/Hibernate sobre SQL Server, e implementé una API REST para validar
-          archivos adjuntos en formularios de mantenimiento, con reglas de formato, tamaño y manejo
-          de errores.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Aplicaciones web en C#/.NET MVC y Java 17/Spring Boot 3.</strong>
+          Persistencia JPA/Hibernate sobre SQL Server, empaquetado con Maven y despliegue en Tomcat; API REST
+          para validar adjuntos con reglas de formato, tamaño y manejo de errores.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Autenticación.</strong>
-          Integré el flujo completo de OAuth 2.0 con Google Identity Platform mediante Authorization
-          Code Grant, para el inicio de sesión y registro de usuarios.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Autenticación y respaldos.</strong>
+          Flujo OAuth 2.0 con Google Identity (Authorization Code Grant) y reCAPTCHA; respaldos automatizados de
+          SQL Server con jobs y procedimientos almacenados.
         </li>
       </ul>
     </div>
@@ -298,7 +280,7 @@
       </h3>
 
       <p class="font-semibold text-sm text-gray-800 dark:text-neutral-200">
-        Desarrollador Funcional
+        Programador Junior
       </p>
 
       <p class="text-xs text-gray-500 dark:text-neutral-500">
@@ -307,14 +289,13 @@
 
       <ul class="list-disc ms-6 mt-3 space-y-1.5">
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Integración de servicios.</strong>
-          Consumí y validé APIs REST mediante JavaScript, $.ajax() y fetch(), implementando manejo
-          centralizado de errores HTTP, timeouts y reintentos con backoff exponencial.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Frontend e integración con servicios.</strong>
+          E-commerce en HTML, CSS, jQuery y Bootstrap; consumo y validación de APIs REST con manejo centralizado
+          de errores HTTP, timeouts y reintentos con backoff exponencial.
         </li>
         <li class="ps-1 text-sm text-gray-600 dark:text-neutral-400">
-          <strong class="font-medium text-gray-800 dark:text-neutral-300">Flujo colaborativo.</strong>
-          Apoyé las prácticas de branching y versionamiento colaborativo con Git/GitHub en equipos
-          multidisciplinarios, con revisión de cambios.
+          <strong class="font-medium text-gray-800 dark:text-neutral-300">Trabajo colaborativo.</strong>
+          Branching y versionamiento con Git/GitHub, revisión de cambios en equipos multidisciplinarios.
         </li>
       </ul>
     </div>

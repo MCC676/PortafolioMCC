@@ -1,22 +1,27 @@
 <main id="content" class="px-4 sm:px-6 lg:px-8 pt-10 md:pt-16">
-  <!-- Primera fila: About (izq) + Experiencia y Proyectos (der) -->
-  <div class="flex flex-col lg:flex-row gap-8 w-full">
-    <!-- About (izquierda) -->
-    <div class="lg:w-1/2">
-      <div class="sticky top-10">
-        <app-profile></app-profile>
+  <!-- Los proyectos salen de la columna derecha y ocupan todo el ancho: son
+       la prueba de trabajo y a media página las tarjetas quedaban de 200 px. -->
+  <div class="max-w-7xl mx-auto">
+    <!-- Primera fila: About (izq) + Experiencia (der) -->
+    <div class="flex flex-col lg:flex-row gap-8 w-full">
+      <!-- About (izquierda) -->
+      <div class="lg:w-1/2">
+        <div class="sticky top-10">
+          <app-profile></app-profile>
+        </div>
+      </div>
+
+      <!-- Experiencia (derecha) -->
+      <div class="lg:w-1/2">
+        <app-experience></app-experience>
       </div>
     </div>
 
-    <!-- Experiencia y Proyectos (derecha) -->
-    <div class="lg:w-1/2">
-      <app-experience></app-experience>
-      <!-- El ancla va en el panel oscuro, no en la rejilla, para que el salto
-           del menú deje ver el título "Proyectos". Las esquinas redondeadas
-           convierten la banda de color en un panel con entidad propia. -->
-      <div id="projects" class="bg-neutral-950 text-white py-10 px-4 sm:px-6 lg:px-8 rounded-2xl">
-        <app-projects></app-projects>
-      </div>
+    <!-- El ancla va en el panel oscuro, no en la rejilla, para que el salto
+         del menú deje ver el título "Proyectos". Las esquinas redondeadas
+         convierten la banda de color en un panel con entidad propia. -->
+    <div id="projects" class="scroll-mt-24 mt-12 bg-neutral-950 text-white py-10 px-4 sm:px-6 lg:px-8 rounded-2xl">
+      <app-projects></app-projects>
     </div>
   </div>
 </main>

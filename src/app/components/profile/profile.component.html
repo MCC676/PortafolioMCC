@@ -15,7 +15,7 @@
       Marco Ccanto Camacho
     </h1>
     <p class="text-md text-gray-600 dark:text-neutral-400">
-      Analista y desarrollador de software | Backend .NET | Cloud
+      Ingeniero de software · Backend .NET · Arquitectura e integraciones
     </p>
   </div>
 </div>
@@ -24,19 +24,49 @@
 <!-- About -->
 <div class="mt-8">
   <p class="text-md text-gray-600 dark:text-neutral-400">
-    Full Stack Developer con más de 4 años de experiencia en diseño, desarrollo,
-    integración y soporte de soluciones empresariales. Mi experiencia principal
-    es en C#/.NET, SQL Server, APIs REST, workers, ETL e integración con ERP y
-    plataformas de terceros.
+    5+ años diseñando, manteniendo e integrando plataformas empresariales en
+    .NET. Trabajo de extremo a extremo: arquitectura por capas, APIs REST y
+    SOAP, SQL Server, frontend Angular y despliegues en IIS. Mi ventaja es el
+    rango: lo mismo depuro un monolito en VB6 que diseño una integración con
+    idempotencia, reintentos y trazabilidad.
   </p>
 
   <p class="mt-3 text-md text-gray-600 dark:text-neutral-400">
-    Actualmente soy Analista Programador Full Stack en Serviam Servicios
-    Compartidos, donde integro el ERP Exactus, el TMS Logaware y aplicaciones
-    internas. Diseño APIs documentadas con OpenAPI/Swagger, autenticación
-    JWT/OAuth 2.0 y procesos asíncronos con trazabilidad, reintentos y
-    recuperación ante fallos.
+    Hoy soy el único desarrollador del portal corporativo de InkaCrops
+    (300–400 usuarios) en Serviam: préstamos y adelantos (~600 solicitudes),
+    alimentación y asistencia (−70% de merma) e integraciones con Exactus,
+    Logaware y SUNAT. Defino los estándares, el flujo de release y la
+    verificación de cada entrega.
   </p>
+
+  <p class="mt-3 text-md text-gray-600 dark:text-neutral-400">
+    Busco un rol donde pueda decidir arquitectura y sostenerla en producción,
+    no solo implementarla.
+  </p>
+
+  <a
+    href="assets/CV_Marco_Ccanto_Backend_2026.pdf"
+    download
+    class="mt-5 inline-flex items-center gap-2 rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:border-gray-800 hover:text-gray-900 dark:border-neutral-700 dark:text-neutral-300 dark:hover:border-neutral-300 dark:hover:text-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <polyline points="7 10 12 15 17 10" />
+      <line x1="12" x2="12" y1="15" y2="3" />
+    </svg>
+    Descargar CV (PDF)
+  </a>
 
   <ul class="mt-5 flex flex-col gap-y-3">
     <li class="flex items-center gap-x-2.5">
@@ -146,6 +176,26 @@
       </a>
     </li>
   </ul>
+
+  <!-- Stack en chips: es lo primero que busca un reclutador que no va a leer
+       toda la experiencia, y el CV descargable ya lo detalla por proyecto. -->
+  <div class="mt-7">
+    <p class="text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-neutral-500">
+      Stack principal
+    </p>
+    <div class="mt-2 flex flex-wrap gap-1.5">
+      @for (t of stack; track t) {
+      <span
+        class="rounded-full border border-gray-200 px-2.5 py-0.5 text-xs text-gray-600 dark:border-neutral-800 dark:text-neutral-400"
+        >{{ t }}</span
+      >
+      }
+    </div>
+    <p class="mt-4 text-xs leading-relaxed text-gray-500 dark:text-neutral-500">
+      Ingeniería de Sistemas Computacionales, UPN (titulado 2025) &middot; UTEC,
+      Arquitectura Digital &amp; Cloud (2025)
+    </p>
+  </div>
 </div>
 
 </div>

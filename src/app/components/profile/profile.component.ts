@@ -8,5 +8,18 @@ import { RevealDirective } from '../../directives/reveal.directive';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-
+  /** Tecnologías con las que trabajo a diario, no una lista exhaustiva. */
+  readonly stack = [
+    'C#/.NET',
+    'ASP.NET Core',
+    'SQL Server',
+    'EF Core',
+    'Dapper',
+    'Angular',
+    'REST/SOAP',
+    'GitHub Actions',
+    'Docker',
+    'AWS',
+    'Python',
+  ];
 }
